@@ -1,0 +1,22 @@
+{
+  "name": "sapca3",
+  "version": "1.0.0",
+  "description": "Secure vs Insecure demo (Node + MySQL)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "npx nodemon server.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.2.0",
+    "express-session": "^1.17.3",
+    "mysql2": "^3.9.7",
+    "winston": "^3.14.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
