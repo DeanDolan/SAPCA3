@@ -1,0 +1,52 @@
+/* Base */
+:root { --gap: 16px; --radius: 16px; --shadow: 0 6px 18px rgba(0,0,0,.08);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #f8fafc; color: #0f172a; }
+a { text-decoration: none; }
+
+/* Layout + cards */
+.wrap { max-width: 1000px; margin: 48px auto; padding: 0 16px; }
+h1 { margin: 0 0 24px; font-size: 28px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: var(--gap); }
+.card { background: #fff; border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); }
+.stack > * + * { margin-top: 12px; }
+
+/* Forms */
+label { display: grid; gap: 6px; font-size: 14px; }
+input, textarea { width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 10px; outline: none; }
+textarea { min-height: 90px; resize: vertical; }
+
+/* Buttons */
+.btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn, button { display: inline-block; padding: 10px 16px; border-radius: 10px; border: 0; cursor: pointer; }
+.btn, button[type="button"], button[type="submit"] { background: #0ea5e9; color: #fff; }
+.btn-secondary { background: #64748b; color:#fff; }
+
+/* Messages */
+.banner { margin-top: 8px; padding: 10px; border-radius: 10px; background:#e2e8f0; }
+.banner--success { background: #dcfce7; }
+.banner--error { background: #fee2e2; }
+.note, .hint { color:#334155; font-size: 13px; }
+
+/* Home screen */
+.home { min-height: 100vh; display: grid; place-items: center; padding: 32px; }
+.home-inner { width: 100%; max-width: 900px; }
+.home-hero { text-align: center; margin-bottom: 24px; }
+.home-hero h1 { margin: 0 0 6px; font-size: 34px; }
+.home-hero p { margin: 0; color: #334155; }
+.home-grid { display: grid; grid-template-columns: repeat(2, minmax(260px, 1fr)); gap: 28px; align-items: stretch; }
+.home-cta {
+  display: flex; align-items: center; justify-content: center;
+  height: 200px; border-radius: 20px; box-shadow: 0 10px 22px rgba(0,0,0,.10);
+  font-size: 32px; font-weight: 800; letter-spacing: .3px;
+  text-decoration: none; transition: transform .08s ease, box-shadow .08s ease;
+}
+.home-cta.insecure { background: #fee2e2; color: #991b1b; }
+.home-cta.secure   { background: #dcfce7; color: #14532d; }
+.home-cta:hover { transform: translateY(-2px); box-shadow: 0 14px 28px rgba(0,0,0,.14); }
+
+@media (max-width: 640px) {
+  .home-grid { grid-template-columns: 1fr; }
+  .home-cta { height: 160px; font-size: 28px; }
+}

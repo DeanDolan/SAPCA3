@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Secure Notes</title>
+  <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+  <div class="wrap">
+    <h1>Secure Notes</h1>
+
+    <section class="card stack">
+      <h2>Create or edit a note</h2>
+      <form id="secure-notes-form">
+        <input type="hidden" id="note-id">
+        <label>Heading
+          <input id="secure-heading" name="heading" maxlength="255" required>
+        </label>
+        <label>Content
+          <textarea id="secure-content" name="content" maxlength="1000" required></textarea>
+        </label>
+        <div class="btn-row">
+          <button type="submit" id="btn-save">Save</button>
+          <button type="button" id="btn-cancel" class="btn-secondary">Cancel edit</button>
+        </div>
+      </form>
+      <div id="secure-banner" class="banner" aria-live="polite"></div>
+    </section>
+
+    <section class="card stack">
+      <h2>Your notes</h2>
+      <ul id="secure-list"><li>Loading…</li></ul>
+    </section>
+
+    <p class="hint">
+      <a href="/secure.html">Back</a> · <a href="/">Home</a> · <a href="/secure/logout">Logout</a>
+    </p>
+  </div>
+
+  <script src="/notes-secure.js" defer></script>
+</body>
+</html>

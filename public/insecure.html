@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Insecure Login / Register</title>
+  <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+  <div class="wrap">
+    <h1>Insecure</h1>
+    <div class="grid">
+      <section class="card stack">
+        <h2>Login (Insecure)</h2>
+        <form id="form-insecure-login" data-endpoint="/api/insecure/login">
+          <label>Username <input name="username" required></label>
+          <label>Password <input type="password" name="password" required></label>
+          <button type="button" id="btn-insecure-login">Login</button>
+        </form>
+        <div id="banner-insecure-login" class="banner" aria-live="polite"></div>
+      </section>
+      <section class="card stack">
+        <h2>Register (Insecure)</h2>
+        <form id="form-insecure-register" data-endpoint="/api/insecure/register">
+          <label>Username <input name="username" required></label>
+          <label>Password <input type="password" name="password" required></label>
+          <label>Confirm <input type="password" name="confirm" required></label>
+          <button type="button" id="btn-insecure-register">Register</button>
+        </form>
+        <div id="banner-insecure-register" class="banner" aria-live="polite"></div>
+      </section>
+    </div>
+    <p class="hint"><a href="/">Home</a></p>
+  </div>
+  <script src="/app-insecure.js" defer></script>
+</body>
+</html>

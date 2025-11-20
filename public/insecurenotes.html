@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Insecure Notes (AJAX)</title>
+  <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+  <div class="wrap">
+    <h1>Insecure Notes</h1>
+
+    <section class="card stack">
+      <h2>Post a note</h2>
+      <div class="note">No validation output encoding or auth on the insecure side by design</div>
+      <form id="insecure-notes-form">
+        <label>Owner <input id="owner"   name="owner"   placeholder="name" required></label>
+        <label>Heading <input id="heading" name="heading" placeholder="short title" required></label>
+        <label>Content <textarea id="content" name="content" placeholder="can inject &lt;script&gt; here"></textarea></label>
+        <button type="submit">Post Insecure</button>
+      </form>
+      <div id="banner" class="banner" aria-live="polite"></div>
+    </section>
+
+    <section class="card stack">
+      <h2>All Notes raw</h2>
+      <ul id="notes-list"><li>Loading…</li></ul>
+    </section>
+
+    <p class="hint"><a href="/insecure.html">Back</a> · <a href="/">Home</a></p>
+  </div>
+
+  <script src="/notes-insecure.js" defer></script>
+</body>
+</html>

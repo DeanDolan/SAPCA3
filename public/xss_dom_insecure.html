@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM XSS – Insecure</title>
+  <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+  <div class="wrap">
+    <h1>DOM XSS – Insecure</h1>
+    <section class="card stack">
+      <p class="note">This page reads <code>location.hash</code> and injects it using <code>innerHTML</code></p>
+      <div id="output" class="banner"></div>
+      <p class="hint"><a href="/insecure.html">Back</a> · <a href="/">Home</a></p>
+    </section>
+  </div>
+  <script src="/dom-xss-insecure.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Secure Login / Register</title>
+  <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+  <div class="wrap">
+    <h1>Secure</h1>
+
+    <div class="grid">
+      <!-- Login (Secure) -->
+      <section class="card stack">
+        <h2>Login (Secure)</h2>
+        <form id="form-secure-login" data-endpoint="/api/secure/login">
+          <label>Username <input name="username" required></label>
+          <label>Password <input type="password" name="password" required></label>
+          <button type="button" id="btn-secure-login">Login</button>
+        </form>
+        <div id="banner-secure-login" class="banner" aria-live="polite"></div>
+      </section>
+
+      <!-- Register (Secure) -->
+      <section class="card stack">
+        <h2>Register (Secure)</h2>
+        <form id="form-secure-register" data-endpoint="/api/secure/register">
+          <label>Username <input name="username" required></label>
+          <label>Password <input id="s-p1" type="password" name="password" required></label>
+          <label>Confirm <input id="s-p2" type="password" name="confirm" required></label>
+          <button type="button" id="btn-secure-register">Register</button>
+        </form>
+        <div id="banner-secure-register" class="banner" aria-live="polite"></div>
+        <p class="note">Policy: ≥12 chars incl upper, lower, number, symbol; must not include username</p>
+      </section>
+    </div>
+
+    <p class="hint"><a href="/">Home</a></p>
+  </div>
+
+  <script src="/app-secure.js" defer></script>
+</body>
+</html>
