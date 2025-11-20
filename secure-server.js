@@ -1,4 +1,4 @@
-// File: server.js  (SECURE BRANCH ONLY)
+// File: server.js  - to submit to insecure branch i had to change name of file to secure-server.js
 // Express server that exposes insecure + secure login/register endpoints
 // - Express basics https://www.w3schools.com/nodejs/nodejs_express.asp
 // - JS Map https://www.w3schools.com/js/js_maps.asp
