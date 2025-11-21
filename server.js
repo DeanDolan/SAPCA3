@@ -192,6 +192,46 @@ app.post('/api/insecure/notes', async (req,res)=>{
   }
 })
 
+app.put('/api/insecure/notes/:id', async (req,res)=>{
+  const id = Number(req.params.id)
+  const heading = String(req.body.heading||'Untitled')
+  const content = String(req.body.content||'')
+  if(!Number.isInteger(id) || id<=0) return res.status(400).json({ ok:false, message:'Invalid id' })
+  try{
+    const [r] = await pool.execute('UPDATE notes SET heading=?, content=? WHERE id=?',[heading,content,id])
+    if(r.affectedRows===0) return res.status(404).json({ ok:false, message:'Not found' })
+    logInfo('note_edit_insecure',{ id })
+    res.json({ ok:true, message:'Updated' })
+  }catch(e){
+    logger.error({ evt:'db_error_insecure_notes_update', message:e.message, code:e.code })
+    res.status(500).json({ ok:false, message:'DB error' })
+  }
+})
+
+app.delete('/api/insecure/notes/:id', async (req,res)=>{
+  const id = Number(req.params.id)
+  if(!Number.isInteger(id) || id<=0) return res.status(400).json({ ok:false, message:'Invalid id' })
+  try{
+    const [r] = await pool.execute('DELETE FROM notes WHERE id=?',[id])
+    if(r.affectedRows===0) return res.status(404).json({ ok:false, message:'Not found' })
+    logInfo('note_delete_insecure',{ id })
+    res.json({ ok:true, message:'Deleted' })
+  }catch(e){
+    logger.error({ evt:'db_error_insecure_notes_delete', message:e.message, code:e.code })
+    res.status(500).json({ ok:false, message:'DB error' })
+  }
+})
+
+app.delete('/api/insecure/notes', async (req,res)=>{
+  try{
+    await pool.execute('TRUNCATE TABLE notes')
+    res.json({ ok:true, message:'All notes cleared' })
+  }catch(e){
+    logger.error({ evt:'db_error_insecure_notes_clear', message:e.message, code:e.code })
+    res.status(500).json({ ok:false, message:'DB error' })
+  }
+})
+
 /* INSECURE reflected echo */
 app.get('/insecure/echo', (req, res) => {
   const q = req.query.q || ''
