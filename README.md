@@ -2,7 +2,7 @@
 
 A teaching demo that shows **insecure** vs **secure** approaches to user authentication and note-taking. The insecure side deliberately uses bad practices (SQL string concatenation, plaintext passwords, raw HTML rendering). The secure side uses prepared statements, **bcrypt** hashing, session-based auth, output encoding, and basic rate limiting.
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 1) Prerequisites
 - Node.js 18+ (works on 20/22 as well)
@@ -80,25 +80,25 @@ Create, list, edit, and delete your notes (scoped by session user; output encode
 ### 7) Project structure
 
 SAPCA3/
-├─ public/
-│  ├─ index.html               # Landing with Secure/Insecure buttons
-│  ├─ insecure.html            # Insecure login/register page (AJAX)
-│  ├─ secure.html              # Secure login/register page (AJAX)
-│  ├─ insecurenotes.html       # Insecure notes UI (AJAX, raw rendering)
-│  ├─ securenotes.html         # Secure notes UI (AJAX, edit/delete)
-│  ├─ styles/
-│  │  └─ styles.css            # Shared styles
-│  ├─ app-insecure.js          # Insecure login/register client
-│  ├─ app-secure.js            # Secure login/register client
-│  ├─ notes-insecure.js        # Insecure notes client (raw innerHTML)
-│  └─ notes-secure.js          # Secure notes client (encode + edit/delete)
-├─ logs/
-│  └─ app.log                  # JSON request & app logs
-├─ server.js                   # Express server (APIs + static)
-├─ schema.sql                  # Optional: same SQL as above
-├─ .env                        # Environment variables (you create this)
-├─ package.json
-└─ package-lock.json
+|- public/
+|  |- index.html               # Landing with Secure/Insecure buttons
+|  |- insecure.html            # Insecure login/register page (AJAX)
+|  |- secure.html              # Secure login/register page (AJAX)
+|  |- insecurenotes.html       # Insecure notes UI (AJAX, raw rendering)
+|  |- securenotes.html         # Secure notes UI (AJAX, edit/delete)
+|  |- styles/
+|  |   - styles.css            # Shared styles
+|  |- app-insecure.js          # Insecure login/register client
+|  |- app-secure.js            # Secure login/register client
+|  |- notes-insecure.js        # Insecure notes client (raw innerHTML)
+|   - notes-secure.js          # Secure notes client (encode + edit/delete)
+|- logs/
+|   - app.log                  # JSON request & app logs
+|- server.js                   # Express server (APIs + static)
+|- schema.sql                  # MySQL code
+|- .env                        # Environment variables (you create this)
+|- package.json
+|- package-lock.json
 
 ### 8) Features (Secure Side)
 
@@ -153,7 +153,6 @@ GET /secure/logout
 GET /health — { status, uptime, timestamp }
 
 GET /metrics — simple counters for screenshots
-
 
 ### 11) Branch Model 
 
